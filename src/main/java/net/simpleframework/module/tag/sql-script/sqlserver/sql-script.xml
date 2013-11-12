@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-script>
+  <version>1.0.0</version>
+  <name>script</name>
+  <description></description>
+  <tran-sql>
+    <![CDATA[
+      create table sf_tag (
+        id char(32) not null,
+        tagmark int not null,
+        tagtext varchar(32) not null,
+        suggest smallint not null,
+        frequency int not null,
+        views int not null,
+        description varchar(256),
+        primary key(id),
+        unique(tagmark)
+      );
+    ]]>
+  </tran-sql>
+  <tran-sql>
+    <![CDATA[
+      create table sf_tagr (
+        id char(32) not null,
+        tagid char(32) not null,
+        contentid char(32) not null,
+        primary key(id),
+        unique(tagid, contentid)
+      );
+    ]]>
+  </tran-sql>
+  <tran-sql>
+    <![CDATA[
+      create table sf_tag_synonyms (
+        id char(32) not null,
+        tagfrom char(32) not null,
+        tagto char(32) not null,
+        description varchar(256),
+        primary key(id),
+        unique(tagfrom, tagto)
+      );
+    ]]>
+  </tran-sql>
+</sql-script>
