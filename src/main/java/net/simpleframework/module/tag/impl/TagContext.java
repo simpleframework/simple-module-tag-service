@@ -1,9 +1,11 @@
 package net.simpleframework.module.tag.impl;
 
 import static net.simpleframework.common.I18n.$m;
-import net.simpleframework.ado.db.DbEntityTable;
+import net.simpleframework.ado.IADOManagerFactory;
+import net.simpleframework.ado.db.DbManagerFactory;
+import net.simpleframework.ctx.AbstractADOModuleContext;
+import net.simpleframework.ctx.IApplicationContext;
 import net.simpleframework.ctx.Module;
-import net.simpleframework.ctx.service.ado.db.AbstractDbModuleContext;
 import net.simpleframework.module.tag.ITagContext;
 import net.simpleframework.module.tag.ITagService;
 import net.simpleframework.module.tag.Tag;
@@ -16,11 +18,16 @@ import net.simpleframework.module.tag.TagSynonyms;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class TagContext extends AbstractDbModuleContext implements ITagContext {
+public abstract class TagContext extends AbstractADOModuleContext implements ITagContext {
 
 	@Override
-	protected DbEntityTable[] getEntityTables() {
-		return new DbEntityTable[] { Tag.TBL, TagR.TBL, TagSynonyms.TBL };
+	public void onInit(final IApplicationContext application) throws Exception {
+		super.onInit(application);
+
+		final IADOManagerFactory aFactory = getADOManagerFactory();
+		if (aFactory instanceof DbManagerFactory) {
+			((DbManagerFactory) aFactory).regist(Tag.TBL, TagR.TBL, TagSynonyms.TBL);
+		}
 	}
 
 	@Override

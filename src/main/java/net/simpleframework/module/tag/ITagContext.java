@@ -1,6 +1,6 @@
 package net.simpleframework.module.tag;
 
-import net.simpleframework.ctx.service.ado.db.IDbModuleContext;
+import net.simpleframework.ctx.IADOModuleContext;
 import net.simpleframework.module.common.plugin.ModulePluginRegistry;
 import net.simpleframework.module.tag.plugin.ITagPlugin;
 
@@ -10,7 +10,7 @@ import net.simpleframework.module.tag.plugin.ITagPlugin;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public interface ITagContext extends IDbModuleContext {
+public interface ITagContext extends IADOModuleContext {
 
 	static final String MODULE_NAME = "simple-module-tag";
 
