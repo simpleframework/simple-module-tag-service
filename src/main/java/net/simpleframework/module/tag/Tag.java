@@ -1,6 +1,6 @@
 package net.simpleframework.module.tag;
 
-import net.simpleframework.ado.bean.AbstractIdBean;
+import net.simpleframework.ado.bean.AbstractDescriptionBean;
 import net.simpleframework.ado.db.DbEntityTable;
 
 /**
@@ -9,7 +9,7 @@ import net.simpleframework.ado.db.DbEntityTable;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class Tag extends AbstractIdBean {
+public class Tag extends AbstractDescriptionBean {
 	/* 标签标识 */
 	private int tagMark;
 
@@ -24,9 +24,6 @@ public class Tag extends AbstractIdBean {
 
 	/* 查看次数 */
 	private int views;
-
-	/* 描述 */
-	private String description;
 
 	public int getTagMark() {
 		return tagMark;
@@ -66,14 +63,6 @@ public class Tag extends AbstractIdBean {
 
 	public void setViews(final int views) {
 		this.views = views;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(final String description) {
-		this.description = description;
 	}
 
 	public static final DbEntityTable TBL = new DbEntityTable(Tag.class, "sf_tag");
