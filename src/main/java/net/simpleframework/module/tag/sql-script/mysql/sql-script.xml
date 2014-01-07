@@ -9,7 +9,7 @@
         id char(32) not null,
         tagmark int not null,
         tagtext varchar(32) not null,
-        suggest bit not null,
+        suggest tinyint(1) not null,
         frequency int not null,
         views int not null,
         description varchar(256),
