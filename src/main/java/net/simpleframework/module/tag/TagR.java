@@ -1,7 +1,6 @@
 package net.simpleframework.module.tag;
 
 import net.simpleframework.ado.bean.AbstractIdBean;
-import net.simpleframework.ado.db.DbEntityTable;
 import net.simpleframework.common.ID;
 
 /**
@@ -32,8 +31,6 @@ public class TagR extends AbstractIdBean {
 	public void setContentId(final ID contentId) {
 		this.contentId = contentId;
 	}
-
-	public static final DbEntityTable TBL = new DbEntityTable(TagR.class, "sf_tagr");
 
 	private static final long serialVersionUID = 4041558017029897229L;
 }

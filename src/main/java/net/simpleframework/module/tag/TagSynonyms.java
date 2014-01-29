@@ -1,7 +1,6 @@
 package net.simpleframework.module.tag;
 
 import net.simpleframework.ado.bean.AbstractDescriptionBean;
-import net.simpleframework.ado.db.DbEntityTable;
 import net.simpleframework.common.ID;
 
 /**
@@ -32,8 +31,6 @@ public class TagSynonyms extends AbstractDescriptionBean {
 	public void setTagTo(final ID tagTo) {
 		this.tagTo = tagTo;
 	}
-
-	public static final DbEntityTable TBL = new DbEntityTable(TagSynonyms.class, "sf_tag_synonyms");
 
 	private static final long serialVersionUID = -4344381418173608712L;
 }

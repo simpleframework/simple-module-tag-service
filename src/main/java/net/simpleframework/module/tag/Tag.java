@@ -1,7 +1,6 @@
 package net.simpleframework.module.tag;
 
 import net.simpleframework.ado.bean.AbstractDescriptionBean;
-import net.simpleframework.ado.db.DbEntityTable;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -64,8 +63,6 @@ public class Tag extends AbstractDescriptionBean {
 	public void setViews(final int views) {
 		this.views = views;
 	}
-
-	public static final DbEntityTable TBL = new DbEntityTable(Tag.class, "sf_tag");
 
 	private static final long serialVersionUID = 7553542915564737502L;
 }

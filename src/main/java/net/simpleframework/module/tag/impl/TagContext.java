@@ -21,7 +21,9 @@ public abstract class TagContext extends AbstractADOModuleContext implements ITa
 		IDbEntityTableRegistry {
 	@Override
 	public DbEntityTable[] createEntityTables() {
-		return new DbEntityTable[] { Tag.TBL, TagR.TBL, TagSynonyms.TBL };
+		return new DbEntityTable[] { new DbEntityTable(Tag.class, "sf_tag"),
+				new DbEntityTable(TagR.class, "sf_tagr"),
+				new DbEntityTable(TagSynonyms.class, "sf_tag_synonyms") };
 	}
 
 	@Override
