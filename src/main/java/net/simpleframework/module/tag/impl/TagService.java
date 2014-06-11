@@ -48,6 +48,7 @@ public class TagService extends AbstractDbBeanService<Tag> implements ITagServic
 
 	@Override
 	public void onInit() throws Exception {
+		super.onInit();
 
 		addListener(new DbEntityAdapterEx() {
 			@Override
