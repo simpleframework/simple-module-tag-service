@@ -50,12 +50,12 @@ public class TagService extends AbstractDbBeanService<Tag> implements ITagServic
 	public void onInit() throws Exception {
 		super.onInit();
 
-		addListener(new DbEntityAdapterEx() {
+		addListener(new DbEntityAdapterEx<Tag>() {
 			@Override
-			public void onBeforeDelete(final IDbEntityManager<?> manager,
+			public void onBeforeDelete(final IDbEntityManager<Tag> manager,
 					final IParamsValue paramsValue) throws Exception {
 				super.onBeforeDelete(manager, paramsValue);
-				for (final Tag tag : coll(paramsValue)) {
+				for (final Tag tag : coll(manager, paramsValue)) {
 					getEntityManager(TagR.class).delete(new ExpressionValue("tagId=?", tag.getId()));
 				}
 			}
