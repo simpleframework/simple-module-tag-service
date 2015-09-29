@@ -2,7 +2,6 @@ package net.simpleframework.module.tag.impl;
 
 import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.ado.db.DbEntityTable;
-import net.simpleframework.ado.db.IDbEntityTableRegistry;
 import net.simpleframework.ctx.AbstractADOModuleContext;
 import net.simpleframework.ctx.Module;
 import net.simpleframework.module.tag.ITagContext;
@@ -17,10 +16,10 @@ import net.simpleframework.module.tag.TagSynonyms;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class TagContext extends AbstractADOModuleContext implements ITagContext,
-		IDbEntityTableRegistry {
+public abstract class TagContext extends AbstractADOModuleContext implements ITagContext {
+
 	@Override
-	public DbEntityTable[] createEntityTables() {
+	protected DbEntityTable[] createEntityTables() {
 		return new DbEntityTable[] { new DbEntityTable(Tag.class, "sf_tag"),
 				new DbEntityTable(TagR.class, "sf_tagr"),
 				new DbEntityTable(TagSynonyms.class, "sf_tag_synonyms") };
