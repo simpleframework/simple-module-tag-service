@@ -17,7 +17,8 @@ import net.simpleframework.module.tag.TagR;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class TagService extends AbstractDbBeanService<Tag> implements ITagService, ITagContextAware {
+public class TagService extends AbstractDbBeanService<Tag>
+		implements ITagService, ITagContextAware {
 
 	@Override
 	public void updateTag(final int tagMark, final ID contentId, final String text,
@@ -36,8 +37,8 @@ public class TagService extends AbstractDbBeanService<Tag> implements ITagServic
 				update(tag);
 			}
 		}
-		TagR r = getEntityManager(TagR.class).queryForBean(
-				new ExpressionValue("contentId=? and tagId=?", contentId, tag.getId()));
+		TagR r = getEntityManager(TagR.class)
+				.queryForBean(new ExpressionValue("contentId=? and tagId=?", contentId, tag.getId()));
 		if (r == null) {
 			r = new TagR();
 			r.setContentId(contentId);

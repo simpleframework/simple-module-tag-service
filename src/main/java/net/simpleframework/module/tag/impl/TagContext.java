@@ -1,6 +1,7 @@
 package net.simpleframework.module.tag.impl;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.ado.db.DbEntityTable;
 import net.simpleframework.ctx.AbstractADOModuleContext;
 import net.simpleframework.ctx.Module;
@@ -27,7 +28,7 @@ public abstract class TagContext extends AbstractADOModuleContext implements ITa
 
 	@Override
 	protected Module createModule() {
-		return new Module().setName(MODULE_NAME).setText($m("TagContext.0")).setOrder(22);
+		return super.createModule().setName(MODULE_NAME).setText($m("TagContext.0")).setOrder(22);
 	}
 
 	@Override
