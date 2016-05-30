@@ -27,7 +27,7 @@ public abstract class TagContext extends AbstractADOModuleContext implements ITa
 
 	@Override
 	protected Module createModule() {
-		return new Module().setName(MODULE_NAME).setText($m("TagContext.0")).setOrder(22);
+		return super.createModule().setName(MODULE_NAME).setText($m("TagContext.0")).setOrder(22);
 	}
 
 	@Override
